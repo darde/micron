@@ -1,0 +1,22 @@
+{
+  "name": "@pablodarde/micron",
+  "version": "1.0.0",
+  "description": "A tiny microinteractions library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darde/micron.git"
+  },
+  "keywords": [
+    "Microinteractions"
+  ],
+  "author": "Pablo Darde",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darde/micron/issues"
+  },
+  "homepage": "https://github.com/darde/micron#readme"
+}
