@@ -1,6 +1,6 @@
 {
   "name": "@pablodarde/micron",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A tiny microinteractions library",
   "main": "index.js",
   "scripts": {
