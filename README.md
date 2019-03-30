@@ -2,4 +2,4 @@
 
 A tiny microinteractions library
 
-![npm](https://img.shields.io/npm/v/micron.svg)
+![npm (scoped)](https://img.shields.io/npm/v/@pablodarde/micron.svg)
