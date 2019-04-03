@@ -1,9 +1,15 @@
 var createElement = require('../../helpers/index.js').createElement;
 require('./styles.css');
 
-var getMicronSearch = function() {
+var getMicronSearch = function(theme) {
+  var theme;
+
+  if (!theme || theme !== 'light' || theme !== 'dark') {
+    theme = 'light';
+  }
+
   var searchContainer = createElement({
-    class: 'search-container',
+    class: theme + ' search-container',
     id: 'micron-search',
   });
 
@@ -35,12 +41,17 @@ var getMicronSearch = function() {
     id: 'clean-search-btn',
   });
 
+  var activeBackground = createElement({
+    class: 'active-background',
+  });
+
   searchContainer.appendChild(glassHolder);
   searchContainer.appendChild(searchContainerLeft);
   searchContainer.appendChild(inputSearch);
   searchClean.appendChild(searchCleanButton);
   searchContainer.appendChild(searchClean);
   searchContainer.appendChild(searchContainerRight);
+  searchContainer.appendChild(activeBackground);
 
   function openSearch() {
     searchContainer.classList.add('open');

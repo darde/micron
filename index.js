@@ -11,7 +11,8 @@ var micron = (function() {
   inputSearchCollection = [... document.querySelectorAll('[data-micron="search"]')];
 
   inputSearchCollection.forEach(function(input) {
-    input.appendChild(getMicronSearch());
+    var theme = input.dataset.theme;
+    input.appendChild(getMicronSearch(theme));
   });
 })();
 

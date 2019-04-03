@@ -1,6 +1,8 @@
 
 .search-container {
   display: inline-flex;
+  position: relative;
+  z-index: 2;
   height: 48px;
   box-sizing: border-box;
 }
@@ -9,18 +11,18 @@
 .search-container-right {
   width: 24px;
   height: 48px;
-  background: #fff;
-  border: 5px solid #999;
-  border-right: 0;
+  box-sizing: border-box;
+  transition: all 0.3s linear;
+}
+
+.search-container-left {
   border-bottom-left-radius: 48px;
   border-top-left-radius: 48px;
-  box-sizing: border-box;
-  transition: all 0.6s ease;
+  border-right: 0 !important;
 }
 
 .search-container-right {
-  border: 5px solid #999;
-  border-left: 0;
+  border-left: 0 !important;
   border-radius: 0;
   border-bottom-right-radius: 48px;
   border-top-right-radius: 48px;
@@ -32,28 +34,26 @@
   position: relative;
   top: 32px;
   left: 12px;
-  border-width: 0;
-  background: #999;
+  border-width: 0 !important;
   width: 17px;
   height: 5px;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
-  transition: all 0.6s ease;
+  transition: all 0.3s linear;
 }
 
 .input-field {
   width: 0;
   height: 100%;
-  background: none;
-  border: 5px solid #999;
-  border-left: 0;
-  border-right: 0;
+  background: none !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
   outline: 0;
   font: normal 18px 'Arial';
   box-sizing: border-box;
-  transition: all 0.6s ease;
+  transition: all 0.3s linear;
 }
 
 .search-clean {
@@ -67,7 +67,7 @@
   z-index: 20;
   top: calc(50% - 10px);
   left: -10px;
-  border: none;
+  border: none !important;
   outline: none;
   background: none;
   width: 0;
@@ -83,7 +83,6 @@
   top: calc(50% - 2px);
   width: 0;
   height: 0;
-  background: #090;
   transition: all 0.6s ease-in-out;
 }
 
@@ -92,22 +91,32 @@
   top: calc(50% - 10px);
 }
 
-.open .input-field {
-  width: 200px;
-  border: 5px solid #090;
-  border-left: 0;
-  border-right: 0;
+.active-background {
+  position: absolute;
+  left: 20px;
+  z-index: -1;
+  width: 0;
+  height: 100%;
+  transition: all 0.3s ease-in;
+  border-radius: 26px;
 }
 
-.open .search-container-right,
+.open .input-field {
+  width: 200px;
+  border-left: 0 !important;
+  border-right: 0 !important;
+}
+
 .open .search-container-left {
-  border: 5px solid #090;
-  border-right: 0;
+  border-right: 0 !important;
+  border-bottom-left-radius: 12px;
+  border-top-left-radius: 12px;
 }
 
 .open .search-container-right {
-  border: 5px solid #090;
-  border-left: 0;
+  border-left: 0 !important;
+  border-bottom-right-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 .open .search-container-right:after {
@@ -130,4 +139,115 @@
 .open .search-clean:after {
   width: 4px;
   height: 20px;
+}
+
+.open .active-background {
+  width: 100%;
+  left: 0;
+  border-radius: 26px;
+}
+
+/* themes colors */
+/* light theme */
+.search-container-left,
+.search-container-right,
+.light .search-container-left,
+.light .search-container-right {
+  background: #000;
+  border: 5px solid #117a8b;
+}
+
+.search-container-right,
+.light .search-container-right {
+  border: 5px solid #117a8b;
+}
+
+.search-container-right:after,
+.light .search-container-right:after {
+  background: #117a8b;
+}
+
+.input-field,
+.light .input-field {
+  border: 5px solid #117a8b;
+}
+
+.search-clean:before,
+.search-clean:after,
+.light .search-clean:before,
+.light .search-clean:after {
+  background: #117a8b;
+}
+
+.active-background,
+.light .active-background {
+  background: #000;
+}
+
+.open .active-background,
+.light .open .active-background {
+  background: #fff;
+}
+
+.open .input-field,
+.light .open .input-field {
+  background: none;
+  border: 5px solid #1e7e34;
+}
+
+.open .search-container-right,
+.open .search-container-left,
+.light .open .search-container-right,
+.light .open .search-container-left {
+  border: 5px solid #1e7e34;
+  background: none;
+}
+
+.open .search-container-right,
+.light .open .search-container-right {
+  border: 5px solid #1e7e34;
+}
+
+.open .search-clean:before,
+.open .search-clean:after,
+.open .light .search-clean:before,
+.open .light .search-clean:after {
+  background: #1e7e34;
+}
+
+/* dark theme */
+.search-container-left .dark,
+.search-container-right .dark {
+  background: #fff;
+  border: 5px solid #999;
+}
+
+.search-container-right .dark {
+  border: 5px solid #999;
+}
+
+.search-container-right:after .dark {
+  background: #999;
+}
+
+.input-field .dark {
+  border: 5px solid #999;
+}
+
+.search-clean:before .dark,
+.search-clean:after .dark {
+  background: #090;
+}
+
+.open .input-field .dark {
+  border: 5px solid #090;
+}
+
+.open .search-container-right .dark,
+.open .search-container-left .dark {
+  border: 5px solid #090;
+}
+
+.open .search-container-right .dark {
+  border: 5px solid #090;
 }
